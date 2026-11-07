@@ -22,11 +22,11 @@ Pendant la démo, un créneau de capacité 2 accepte deux bénévoles et refuse 
 
 ### TR1 — Inscrire un bénévole sur un créneau
 
-Un bénévole s'inscrit sur un créneau existant avec son nom et son email. Règle métier : on n'inscrit personne au-delà de la capacité du créneau.
+Un bénévole s'inscrit sur un créneau existant avec son nom et son email. Règles métier : on n'inscrit personne au-delà de la capacité du créneau ; un même email ne s'inscrit pas deux fois sur un créneau.
 
 ### TR2 — Consulter un créneau et ses inscrits
 
-Un créneau affiche ses horaires, sa capacité, ses places restantes et ses inscrits. Règle métier : un même email ne s'inscrit pas deux fois sur un créneau.
+Un créneau affiche ses horaires, sa capacité, ses places restantes et ses inscrits.
 
 ### TR3 — Se désinscrire d'un créneau
 
@@ -46,5 +46,5 @@ Un écran permet de voir un créneau, de s'y inscrire et de s'en désinscrire, s
 
 ## Hypothèses et risques
 
-- Le bénévole est identifié par son email, et un créneau ne change pas de capacité une fois ouvert. Si l'email est partagé, TR2 bloque deux bénévoles.
+- Le bénévole est identifié par son email, et un créneau ne change pas de capacité une fois ouvert. Si l'email est partagé, TR1 bloque deux bénévoles.
 - Risque accepté pour la démo : rien ne limite aujourd'hui l'ouverture d'un créneau (TR4) aux responsables, car le PRD exclut les comptes. Condition de levée : avant toute utilisation réelle pendant les Jeux.
