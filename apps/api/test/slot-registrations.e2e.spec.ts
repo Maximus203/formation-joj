@@ -43,6 +43,36 @@ describe('POST /api/slots/:slotId/registrations (e2e)', () => {
     expect(await readRegistrations(app, unknownSlot)).toHaveLength(0);
   });
 
+  it('001-AS2: refuses a full slot (409 SLOT_FULL)', async () => {
+    const slotId = await seedSlot(app, 2, ['awa@joj.sn', 'moussa@joj.sn']);
+
+    const response = await register(slotId, { name: 'Fatou', email: 'fatou@joj.sn' }).expect(409);
+
+    expect(response.body).toMatchObject({ code: 'SLOT_FULL' });
+    expect(response.body.detail).toMatch(/complet/);
+    expect(await readRegistrations(app, slotId)).toHaveLength(2);
+  });
+
+  it('001-AS3: accepts the last place then refuses the next', async () => {
+    const slotId = await seedSlot(app, 2, ['awa@joj.sn']);
+
+    const accepted = await register(slotId, { name: 'Moussa', email: 'moussa@joj.sn' }).expect(201);
+    const refused = await register(slotId, { name: 'Fatou', email: 'fatou@joj.sn' }).expect(409);
+
+    expect(accepted.body.placesLeft).toBe(0);
+    expect(refused.body).toMatchObject({ code: 'SLOT_FULL' });
+    expect(await readRegistrations(app, slotId)).toHaveLength(2);
+  });
+
+  it('001-AS5: refuses the same email twice (409)', async () => {
+    const slotId = await seedSlot(app, 2, ['awa@joj.sn']);
+
+    const response = await register(slotId, { name: 'Awa', email: ' AWA@joj.sn' }).expect(409);
+
+    expect(response.body).toMatchObject({ code: 'VOLUNTEER_ALREADY_REGISTERED' });
+    expect(await readRegistrations(app, slotId)).toHaveLength(1);
+  });
+
   it('rejects invalid input (400): slot id not a UUID, empty or too long fields', async () => {
     const slotId = await seedSlot(app, 2);
 
