@@ -23,14 +23,6 @@ Tu repars du dépôt des ateliers A et B, sur ta branche `journee`, avec ton `CL
 
 Pendant les Jeux, les épreuves s'enchaînent sur plusieurs sites. Le public veut savoir qui a gagné aujourd'hui et où en est son pays ; les journalistes doivent publier vite, et vérifient les résultats à la main d'une source à l'autre. Une erreur de podium, une fois publiée, se corrige mal.
 
-### Thème 2 : Guide touristique de Dakar
-
-Des milliers de visiteurs et de supporters sont à Dakar pour les Jeux, souvent pour la première fois. Entre deux épreuves, ils ont quelques heures devant eux et ne savent pas quoi faire, ni où : les animations sont annoncées un peu partout, et rien ne dit ce qui est proche, ce qui se passe maintenant, ou ce qui vaut le détour.
-
-### Thème 3 : Mobilité et covoiturage
-
-Pendant le pic de l'événement, l'accès aux sites olympiques (Dakar, Diamniadio, Saly) est saturé : les navettes sont pleines, les taxis rares et chers. Pourtant, beaucoup de voitures partent vers les mêmes sites avec des places vides, et les supporters ne savent pas qui part, d'où, ni quand.
-
 ## Tes outils, et quand les utiliser
 
 | Quand                                   | Outil                                         | Pour quoi                                                                      |
