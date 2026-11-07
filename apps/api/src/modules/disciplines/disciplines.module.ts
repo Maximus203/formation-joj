@@ -4,6 +4,7 @@ import { CreateDiscipline } from './application/use-cases/create-discipline';
 import { DeleteDiscipline } from './application/use-cases/delete-discipline';
 import { GetDiscipline } from './application/use-cases/get-discipline';
 import { ListDisciplines } from './application/use-cases/list-disciplines';
+import { ListSimilarDisciplines } from './application/use-cases/list-similar-disciplines';
 import { UpdateDiscipline } from './application/use-cases/update-discipline';
 import { DisciplinesController } from './http/disciplines.controller';
 import { DrizzleDisciplineRepository } from './infra/drizzle-discipline.repository';
@@ -18,6 +19,7 @@ import { DrizzleDisciplineRepository } from './infra/drizzle-discipline.reposito
     GetDiscipline,
     UpdateDiscipline,
     DeleteDiscipline,
+    ListSimilarDisciplines,
   ],
 })
 export class DisciplinesModule {}

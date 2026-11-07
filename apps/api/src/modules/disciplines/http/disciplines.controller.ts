@@ -12,6 +12,7 @@ import { CreateDiscipline } from '../application/use-cases/create-discipline';
 import { DeleteDiscipline } from '../application/use-cases/delete-discipline';
 import { GetDiscipline } from '../application/use-cases/get-discipline';
 import { ListDisciplines } from '../application/use-cases/list-disciplines';
+import { ListSimilarDisciplines } from '../application/use-cases/list-similar-disciplines';
 import { UpdateDiscipline } from '../application/use-cases/update-discipline';
 import type { Discipline } from '../domain/discipline';
 
@@ -30,6 +31,7 @@ export class DisciplinesController {
     private readonly getDiscipline: GetDiscipline,
     private readonly updateDiscipline: UpdateDiscipline,
     private readonly deleteDiscipline: DeleteDiscipline,
+    private readonly listSimilarDisciplines: ListSimilarDisciplines,
   ) {}
 
   @Get()
@@ -48,6 +50,12 @@ export class DisciplinesController {
   @ZodSerializerDto(DisciplineDto)
   async get(@Param() { id }: DisciplineIdParamsDto): Promise<DisciplineResponse> {
     return toResponse(await this.getDiscipline.execute(id));
+  }
+
+  @Get(':id/similaires')
+  @ZodSerializerDto([DisciplineDto])
+  async similar(@Param() { id }: DisciplineIdParamsDto): Promise<DisciplineResponse[]> {
+    return (await this.listSimilarDisciplines.execute(id)).map(toResponse);
   }
 
   @Patch(':id')
