@@ -1,6 +1,6 @@
 # 001 — Inscription d'un bénévole sur un créneau
 
-**Statut** : Validée
+**Statut** : Implémentée
 **PRD** : specs/prd-benevoles.md, TR1
 
 ## Contexte
